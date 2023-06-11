@@ -51,22 +51,21 @@ fun PresentationCard(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
         .background(Color(0xFF112537)),
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         MainInformation(
             fullName = stringResource(R.string.cristian_full_name),
             photo = R.drawable.android_logo,
             title = stringResource(R.string.job_tittle),
             modifier = Modifier
-                .weight(0.75f)
-                .padding(16.dp)
+                .padding(16.dp).weight(0.6f)
         )
         ContactInformation(
             stringResource(R.string.phone_number),
             stringResource(R.string.social_acount),
             stringResource(R.string.email),
             modifier = Modifier
-                .weight(0.25f)
-                .padding(16.dp)
+                .padding(start = 24.dp, end = 16.dp, bottom = 0.dp).weight(0.3f)
         )
 
     }
@@ -77,7 +76,7 @@ fun PresentationCard(modifier: Modifier = Modifier) {
 fun MainInformation(fullName: String, photo: Int, title: String, modifier: Modifier = Modifier) {
     val image = painterResource(id = photo)
     Column(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -103,7 +102,10 @@ fun MainInformation(fullName: String, photo: Int, title: String, modifier: Modif
 
 @Composable
 fun ContactInformation(phoneNumber: String, accunt: String, email: String, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.padding(8.dp)) {
+    Column (
+        verticalArrangement = Arrangement.Center,
+        modifier = modifier
+    ) {
         PersonalInformationField(content = phoneNumber, icon = R.drawable.phone_24, description = "Phone number")
         PersonalInformationField(content = accunt, icon = R.drawable.social_account_24, description = "Social account")
         PersonalInformationField(content = email, icon = R.drawable.email_24, description = "Email account")
